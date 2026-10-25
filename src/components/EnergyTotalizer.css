@@ -1,0 +1,307 @@
+/* ==========================================================================
+   ENERGY TOTALIZER (CYCLOMETER REGISTER STYLE)
+   Aligned visually with the adjacent circular instrument gauge cards
+   ========================================================================== */
+
+.energy-totalizer-card {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.energy-totalizer-card:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+}
+
+/* 1. Header */
+.totalizer-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  min-width: 0;
+  width: 100%;
+}
+
+.totalizer-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent-cyan, #22d3ee);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  flex-shrink: 0;
+}
+
+.totalizer-title-group {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.totalizer-eyebrow {
+  display: block;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--muted, #8ea3bb);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.totalizer-title {
+  margin: 1px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text, #eaf1fa);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 2. Cyclometer Bezel & Digit Wheel Window */
+.cyclometer-bezel {
+  padding: 10px 10px;
+  background: linear-gradient(180deg, #09121d 0%, #050b12 100%);
+  border: 2px solid #1c2e44;
+  border-radius: 9px;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.cyclometer-window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.digit-wheels-group {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.digit-wheel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(17px, 3.8vw, 22px);
+  height: clamp(26px, 5.5vw, 32px);
+  background: linear-gradient(180deg, #18283a 0%, #0d1724 50%, #152233 100%);
+  border: 1px solid #2a3d54;
+  border-radius: 3px;
+  color: #eaf1fa;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(13px, 3vw, 16px);
+  font-weight: 800;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.decimal-wheel {
+  background: linear-gradient(180deg, #164e63 0%, #083344 50%, #155e75 100%);
+  border-color: #22d3ee;
+  color: #22d3ee;
+}
+
+.decimal-separator {
+  font-size: 18px;
+  font-weight: 900;
+  color: #22d3ee;
+  line-height: 1;
+  margin: 0 1px;
+  flex-shrink: 0;
+}
+
+.totalizer-unit {
+  margin-left: 6px;
+  font-size: clamp(11px, 2.4vw, 13px);
+  font-weight: 800;
+  color: var(--accent-cyan, #22d3ee);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* 3. Energy vs Power Explanation Box */
+.totalizer-explanation-box {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(20, 184, 166, 0.05);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.distinction-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.distinction-tag {
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+.distinction-tag.energy {
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--accent-cyan, #22d3ee);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.distinction-tag.power {
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--accent, #14b8a6);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.distinction-divider {
+  font-size: 9px;
+  color: var(--muted, #8ea3bb);
+  font-style: italic;
+}
+
+.totalizer-explanation-text {
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: var(--muted, #8ea3bb);
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 4. Footer Status Row (Matches CircularGauge's .gauge-info-footer) */
+.totalizer-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.totalizer-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.totalizer-caption {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.totalizer-badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-simulated {
+  background: var(--accent-soft-cyan, rgba(34, 211, 238, 0.12));
+  color: var(--accent-cyan, #22d3ee);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.badge-hardware {
+  background: var(--green-soft, rgba(16, 185, 129, 0.12));
+  color: var(--green, #10b981);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-stale {
+  background: var(--amber-soft, rgba(245, 158, 11, 0.12));
+  color: var(--amber, #f59e0b);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-unavailable {
+  background: rgba(100, 116, 139, 0.15);
+  color: var(--muted, #8ea3bb);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.totalizer-range-note {
+  margin: 0;
+  font-size: 10.5px;
+  color: var(--muted);
+  line-height: 1.35;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Light Mode Overrides */
+.app.light .cyclometer-bezel {
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-color: #94a3b8;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app.light .digit-wheel {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.app.light .decimal-wheel {
+  background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 50%, #e0f2fe 100%);
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.app.light .decimal-separator,
+.app.light .totalizer-unit {
+  color: #0284c7;
+}

@@ -16,6 +16,7 @@ type EnergyReading = {
   occupancy: number | null;
   temperature: number | null;
   humidity: number | null;
+  powerFactor?: number | null;
   source: "simulation" | "hardware";
 };
 

@@ -1,0 +1,292 @@
+/* ==========================================================================
+   CIRCULAR ELECTRICAL INSTRUMENT GAUGES
+   Switchboard / SCADA Instrument Style with Cyan/Teal Accents
+   ========================================================================== */
+
+.circular-gauge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 14px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.circular-gauge-card:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+}
+
+.gauge-svg-container {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+/* Bezel & Dial Face */
+.gauge-bezel-outer {
+  stroke: var(--border-light, #2a415d);
+  stroke-width: 1.5;
+}
+
+.gauge-bezel-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+}
+
+.gauge-dial-face {
+  stroke: rgba(0, 0, 0, 0.4);
+  stroke-width: 2;
+}
+
+.gauge-screw {
+  fill: #2a3d54;
+  stroke: #101c2b;
+  stroke-width: 0.8;
+}
+
+/* Scales & Ticks */
+.gauge-scale-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.gauge-zone-nominal {
+  fill: none;
+  stroke: #10b981;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.gauge-zone-warning {
+  fill: none;
+  stroke: #f59e0b;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.gauge-zone-danger {
+  fill: none;
+  stroke: #ef4444;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.gauge-major-tick {
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.gauge-minor-tick {
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1;
+}
+
+.gauge-scale-label {
+  fill: var(--muted, #8ea3bb);
+  font-size: 8px;
+  font-weight: 700;
+  text-anchor: middle;
+  font-family: "Inter", monospace, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+/* Dial Center Typography */
+.gauge-dial-title {
+  fill: var(--text, #eaf1fa);
+  font-size: 8.5px;
+  font-weight: 800;
+  text-anchor: middle;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.gauge-dial-subtitle {
+  fill: var(--muted, #8ea3bb);
+  font-size: 6.5px;
+  font-weight: 600;
+  text-anchor: middle;
+  letter-spacing: 0.5px;
+}
+
+/* Moving Needle & Pivot */
+.gauge-needle-group {
+  transform-origin: 100px 100px;
+  transition: transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
+  will-change: transform;
+}
+
+.gauge-needle-blade {
+  fill: #22d3ee;
+  stroke: #0891b2;
+  stroke-width: 0.6;
+}
+
+.gauge-needle-counterweight {
+  fill: #155e75;
+  stroke: #22d3ee;
+  stroke-width: 0.8;
+}
+
+.gauge-pivot-ring {
+  fill: #0c1827;
+  stroke: #22d3ee;
+  stroke-width: 1.5;
+}
+
+.gauge-pivot-jewel {
+  fill: #22d3ee;
+}
+
+/* Digital Readout Display Window */
+.gauge-readout-window {
+  fill: rgba(0, 0, 0, 0.45);
+  stroke: rgba(34, 211, 238, 0.3);
+  stroke-width: 1;
+}
+
+.gauge-readout-text {
+  fill: #22d3ee;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-anchor: middle;
+  font-family: Consolas, "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+.gauge-readout-unit {
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--text, #eaf1fa);
+}
+
+/* Gauge Info Footer */
+.gauge-info-footer {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gauge-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.gauge-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.gauge-badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.badge-simulated {
+  background: var(--accent-soft-cyan, rgba(34, 211, 238, 0.12));
+  color: var(--accent-cyan, #22d3ee);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.badge-hardware {
+  background: var(--green-soft, rgba(16, 185, 129, 0.12));
+  color: var(--green, #10b981);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-stale {
+  background: var(--amber-soft, rgba(245, 158, 11, 0.12));
+  color: var(--amber, #f59e0b);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-unavailable {
+  background: rgba(100, 116, 139, 0.15);
+  color: var(--muted, #8ea3bb);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.gauge-range-note {
+  margin: 0;
+  font-size: 10.5px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* Light Mode Overrides */
+.app.light .gauge-dial-face {
+  fill: #f8fafc;
+  stroke: #cbd5e1;
+}
+
+.app.light .gauge-bezel-outer {
+  stroke: #94a3b8;
+}
+
+.app.light .gauge-major-tick {
+  stroke: #334155;
+}
+
+.app.light .gauge-minor-tick {
+  stroke: #94a3b8;
+}
+
+.app.light .gauge-scale-label {
+  fill: #475569;
+}
+
+.app.light .gauge-dial-title {
+  fill: #0f172a;
+}
+
+.app.light .gauge-readout-window {
+  fill: #f1f5f9;
+  stroke: #0284c7;
+}
+
+.app.light .gauge-readout-text {
+  fill: #0284c7;
+}
+
+.app.light .gauge-readout-unit {
+  fill: #0f172a;
+}
+
+.app.light .gauge-needle-blade {
+  fill: #0284c7;
+  stroke: #0369a1;
+}
+
+.app.light .gauge-scale-track {
+  stroke: #cbd5e1;
+}
