@@ -1,75 +1,55 @@
-# React + TypeScript + Vite
+# EnergyTwin AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AI-Powered Building Energy Digital Twin for Intelligent Power Usage Optimization**
 
-Currently, two official plugins are available:
+EnergyTwin AI is a building-energy intelligence prototype designed to combine electrical measurements, contextual sensor data, a digital representation of a building, and AI-assisted analytics to support informed energy-management decisions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Current Features
 
-## React Compiler
+- Energy overview dashboard
+- Consumption trends and baseline comparison
+- Digital Twin representation of the pilot building
+- Rule-based energy insights and recommendations
+- Simulation and backend API modes
+- Initial Express API for energy readings
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technology Stack
 
-## Expanding the ESLint configuration
+- React, TypeScript and Vite
+- Recharts and Lucide React
+- Node.js and Express
+- Energy-reading API
+- AI analytics — under development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Status
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The dashboard and initial API are under development. Current sample readings are illustrative; live meter integration and pilot validation remain pending.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Run Locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Frontend
 
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Backend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd backend
+npm install
+npm run dev
 ```
+
+Configure local environment variables as required. Do not commit `.env` files, credentials, or private configuration.
+
+## Pilot
+
+Mechanical Seminar Hall, Malnad College of Engineering, Hassan, Karnataka.
+
+Electrical installation and integration are subject to site approval and work by an authorised electrician.
+
+## Disclaimer
+
+This is a prototype, not a validated building energy management system. Recommendations require human review, and simulated results must not be interpreted as measured energy savings.
