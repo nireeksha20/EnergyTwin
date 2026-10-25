@@ -32,39 +32,39 @@ import type { EnergyReading } from "./data/energyTypes";
 
 type Theme = "dark" | "light";
 
-const latestReading = energyReadings[energyReadings.length - 1];
-const energySummary = getEnergySummary();
+// const latestReading = energyReadings[energyReadings.length - 1];
+// const energySummary = getEnergySummary();
 
-const metrics = [
-  {
-    label: "Voltage",
-    value: `${latestReading.voltage.toFixed(1)}`,
-    unit: "V",
-    icon: Activity,
-    note: "Supply voltage",
-  },
-  {
-    label: "Current",
-    value: `${latestReading.current.toFixed(1)}`,
-    unit: "A",
-    icon: Zap,
-    note: "Measured current",
-  },
-  {
-    label: "Active Power",
-    value: `${latestReading.power.toFixed(2)}`,
-    unit: "kW",
-    icon: TrendingUp,
-    note: "Instantaneous power",
-  },
-  {
-    label: "Energy Today",
-    value: `${energySummary.estimatedDailyEnergy.toFixed(2)}`,
-    unit: "kWh",
-    icon: Activity,
-    note: "Daily consumption",
-  },
-];
+// const metrics = [
+//   {
+//     label: "Voltage",
+//     value: `${latestReading.voltage.toFixed(1)}`,
+//     unit: "V",
+//     icon: Activity,
+//     note: "Supply voltage",
+//   },
+//   {
+//     label: "Current",
+//     value: `${latestReading.current.toFixed(1)}`,
+//     unit: "A",
+//     icon: Zap,
+//     note: "Measured current",
+//   },
+//   {
+//     label: "Active Power",
+//     value: `${latestReading.power.toFixed(2)}`,
+//     unit: "kW",
+//     icon: TrendingUp,
+//     note: "Instantaneous power",
+//   },
+//   {
+//     label: "Energy Today",
+//     value: `${energySummary.estimatedDailyEnergy.toFixed(2)}`,
+//     unit: "kWh",
+//     icon: Activity,
+//     note: "Daily consumption",
+//   },
+// ];
 
 const navigation = [
   { label: "Overview", icon: LayoutDashboard },
